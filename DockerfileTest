@@ -1,3 +1,3 @@
-FROM Tetris
+FROM tetris123
 
 RUN ./gradlew test
