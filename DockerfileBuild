@@ -1,10 +1,8 @@
-FROM bitnami/java:16
-
-RUN apt-get update && apt-get install -y git
-
-RUN git clone https://github.com/maladdicted/JFXTetris.git
-
-WORKDIR /JFXTetris
-
+RUN ./gradlew build -x test
+FROM bitnami/java:16 as build
+COPY /src /app/src
+COPY /gradle /app/gradle
+COPY build.gradle gradlew settings.gradle /app/
+WORKDIR /app
 RUN chmod -R 777 *
 RUN ./gradlew build -x test
