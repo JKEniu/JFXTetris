@@ -6,7 +6,7 @@ pipeline {
             steps{
                 script {
                     sh """
-                        docker build -t Tetris -f DockerfileBuild . > logs_${env.BUILD_NUMBER}.log 2>&1
+                        docker build -t tetris123 -f DockerfileBuild . > logs_${env.BUILD_NUMBER}.log 2>&1
                     """
                 }
             }
