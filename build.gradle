@@ -10,6 +10,8 @@ plugins {
 group 'com.grandrain'
 version '1.2.0'
 
+project.version = scmVersion.version
+
 scmVersion {
     ignoreUncommittedChanges.set(false) 
      useHighestVersion.set(true)
