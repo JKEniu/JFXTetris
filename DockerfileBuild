@@ -6,6 +6,6 @@ WORKDIR /app
 RUN chmod -R 777 *
 RUN ./gradlew build -x test
 
-COPY /app/build/libs/tetris-0.1.0-SNAPSHOT.jar /app/app.jar
+COPY /app/build/libs/Tetris.jar /app/app.jar
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
