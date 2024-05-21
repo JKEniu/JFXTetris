@@ -6,6 +6,11 @@ WORKDIR /app
 RUN chmod -R 777 *
 RUN ./gradlew build -x test
 
-COPY /app/build/libs/Tetris.jar /app/app.jar
+FROM eclipse-temurin:17-jre-alpine
+COPY --from=build /app/build/libs/*.jar /app/app.jar
+WORKDIR /app
+
 EXPOSE 8080
+
 CMD ["java", "-jar", "app.jar"]
+
