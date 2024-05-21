@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'git_tok', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                        sh "chmod -R * 777"
                         sh "./gradlew release -Prelease.customUsername='$USERNAME' -Prelease.customPassword='$PASSWORD' -Prelease.disableChecks -Prelease.pushTagsOnly"
                         def gradleOutput = sh(script: './gradlew cV', returnStdout: true).trim()
                         def versionLine = gradleOutput.readLines().find { it.startsWith('Project version: ') }
