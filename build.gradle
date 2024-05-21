@@ -4,10 +4,17 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.0'
     id 'edu.sc.seis.launch4j' version '2.5.1'
     id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'pl.allegro.tech.build.axion-release' version '1.15.1'
 }
 
 group 'com.grandrain'
 version '1.2.0'
+
+scmVersion {
+    ignoreUncommittedChanges.set(false) 
+     useHighestVersion.set(true)
+
+}
 
 repositories {
     mavenCentral()
