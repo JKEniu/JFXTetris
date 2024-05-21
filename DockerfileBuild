@@ -5,3 +5,7 @@ COPY build.gradle gradlew settings.gradle /app/
 WORKDIR /app
 RUN chmod -R 777 *
 RUN ./gradlew build -x test
+
+build /app/build/libs/*.jar /app/app.jar
+EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]
