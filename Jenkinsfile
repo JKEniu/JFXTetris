@@ -37,13 +37,13 @@ pipeline {
         stage('Save docker image') {
             steps {
                 script {
-                    sh "docker save -o petclinic-test_${env.BUILD_NUMBER}.tar petclinic-test:latest"
+                    sh "docker save -o tetris_${env.BUILD_NUMBER}.tar tetris:latest"
                 }
             }
         }
         stage('Archive docker image') {
             steps {
-                archiveArtifacts artifacts: "petclinic-test_${env.BUILD_NUMBER}.tar", fingerprint: true
+                archiveArtifacts artifacts: "tetris_${env.BUILD_NUMBER}.tar", fingerprint: true
             }
         }
     }
