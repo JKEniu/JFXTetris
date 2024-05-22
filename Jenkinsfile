@@ -34,17 +34,5 @@ pipeline {
                     }
                 }
             }
-        stage('Save docker image') {
-            steps {
-                script {
-                    sh "docker save -o tetris_${env.BUILD_NUMBER}.tar tetris:latest"
-                }
-            }
-        }
-        stage('Archive docker image') {
-            steps {
-                archiveArtifacts artifacts: "tetris_${env.BUILD_NUMBER}.tar", fingerprint: true
-            }
-        }
     }
 }
