@@ -5,6 +5,7 @@ COPY build.gradle gradlew settings.gradle /app/
 WORKDIR /app
 RUN chmod -R 777 *
 RUN ./gradlew build -x test
+RUN apt-get update && apt-get install -y libx11-dev
 
 FROM eclipse-temurin:17-jre-alpine
 COPY --from=build /app/build/libs/Tetris.jar /app/app.jar
